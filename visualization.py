@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("DataSet_Transformation_Lab_02/day02_usage.csv")
+df = pd.read_csv("day02_usage.csv")
 
 busiest = df.max(axis=0)
 print(busiest.max())

@@ -24,17 +24,25 @@ print(f"Indices of Best Value : {int(c.argmax())+1}\nWorst Value : {int(c.argmin
 
 # Write it. Do not shortcut it. Count the lines when you are done.
 
-apps = ["Day","Chat","Video","Study","Games"]
+apps = ["Chat","Video","Study","Games"]
+win = []
 
 for i in range(len(chat)):
     daily = np.array([
         chat[i],video[i],study[i],games[i]
     ])
+
     position = np.argmax(daily)
-
     app = apps[position]
-
     print(f"D{i+1} : {app}")
+    # best = 0
+
+    # for j in range(1,4):
+    #     if daily[j] > daily[best]:
+    #         best = j
+    # win.append(apps[best])
+
+    # print(f"D{i+1} : {win[i]}")
     
 
 # D2. What share of each day did each app take?
@@ -48,7 +56,6 @@ total = chat + video + games + study
 b1,c1,d1,e1 = ((b/total)*100,(c/total)*100,(d/total)*100,(e/total)*100)
 
 
-print(f"Chat :\n{np.round(b1,2)}")
-print(f"Video :\n{np.round(c1, 2)}")
-print(f"Games :\n{np.round(d1,2)}")
-print(f"Study :\n{np.round(e1,2)}")
+for i in range(len(chat)):
+    print(f"Day {i+1} Share :")
+    print(f"Chat : {round(b1[i],2)}\nVideo : {round(c1[i],2)}\nGames : {round(d1[i],2)}\nStudy : {round(e1[i],2)}\n")
